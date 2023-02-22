@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('text')->nullable()->default(null);
+            $table->string('text');
             $table->string('image_path')->nullable()->default(null);
             $table->foreignId('author_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->enum('status', ['published', 'unpublished'])->default('unpublished');
             $table->timestamps();
         });
     }

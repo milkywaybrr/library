@@ -19,11 +19,13 @@ class BookController extends Controller
         $validator = Validator::make($request->all(), [
            'name' => 'required',
            'text' => 'required|min:20',
-           'file' => 'mimes:png,jpg,jpeg'
+           'file' => 'mimes:png,jpg,jpeg',
+           'category_id' => 'required'
         ], [
             'name.required' => 'Введите название',
             'text.required' => 'Введите описание',
             'text.min' => 'Описание не менее 20 символов',
+            'category_id.required' => 'Выберите категорию'
         ]);
 
         if($validator->fails()) {

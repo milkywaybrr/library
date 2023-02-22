@@ -18,6 +18,16 @@
                 <h2>Добавить книгу</h2>
                 <input type="text" name="name" placeholder="Название книги" value="{{ old('name') }}">
                 <textarea name="text" placeholder="Описание">{{ old('text') }}</textarea>
+                <select name="category_id">
+                    <option value="">
+                        --Выберите категорию--
+                    </option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category['id'] }}">
+                            {{ $category['name'] }}
+                        </option>
+                    @endforeach
+                </select>
                 <input type="file" name="file">
                 <input class="button" type="submit" value="Сохранить">
             </form>

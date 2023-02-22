@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Books;
+use App\Models\Categories;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -23,6 +25,29 @@ class IndexController extends Controller
 
     public function add()
     {
-        return view('add');
+        $categories = Categories::all();
+
+        return view('add', [
+            'categories' => $categories
+        ]);
     }
+
+    public  function update(Books $books)
+    {
+        $categories = Categories::all();
+
+        return view('update', [
+            'categories' => $categories,
+            'books' => $books
+        ]);
+    }
+
+//    public function user(User $user)
+//    {
+//        return
+//    }
 }
+
+
+
+

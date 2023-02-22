@@ -16,17 +16,10 @@ class BooksSeeder extends Seeder
     {
         Books::query()->create([
             'name'=> 'First book',
-            'author_id' => rand(1, 2)
-        ]);
-
-        Books::query()->create([
-            'name'=> 'New book',
-            'author_id' => rand(1, 2)
-        ]);
-
-        Books::query()->create([
-            'name'=> 'Old book',
-            'author_id' => rand(1, 2)
+            'author_id' => rand(1, 2),
+            'image_path' => 'public/image/AjV6g1sOzIM4rT4NiRxQ1NtFkA4IiO69wX5Qqr89.jpg',
+            'text' => 'Очень много текста, прямо совсем много текста из головы.',
+            'category_id' => rand(1, 5)
         ]);
     }
 }

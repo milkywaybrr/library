@@ -14,7 +14,8 @@ class Books extends Model
         'name',
         'text',
         'image_path',
-        'author_id'
+        'author_id',
+        'category_id'
     ];
 
     public  function author()
@@ -25,5 +26,10 @@ class Books extends Model
     public function getImageUrlAttribute()
     {
         return asset('public' . Storage::url($this->image_path));
+    }
+
+    public function categories()
+    {
+        return $this->hasOne(Categories::class, 'id', 'category_id')->first();
     }
 }
